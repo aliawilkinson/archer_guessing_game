@@ -1,0 +1,282 @@
+html {
+    /*overflow: hidden;*/
+}
+
+body .bodystyle {
+    background-image: url("images/ghost_in_the_shell_background.jpg");
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.human {
+    height: 70vh;
+    top: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(0, 40%);
+}
+
+.evil-human {
+    position: absolute;
+    z-index: 2;
+    transform: translate(5%, -60%);
+}
+
+.lana-win {
+    -webkit-animation-name: lanaWin;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-fill-mode: forwards;
+    animation-name: lanaWin;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+/* Safari 4.0 - 8.0 */
+
+@-webkit-keyframes lanaWin {
+    0% {
+        transform: translate(0, 40%);
+        height: 70vh;
+    }
+    50% {
+        opacity: 0;
+        transform: translate(200%, 40%);
+    }
+    100% {
+        opacity: 0;
+        height: 30vh;
+    }
+}
+
+/* Standard syntax */
+
+@keyframes lanaWin {
+    0% {
+        transform: translate(0, 40%);
+        height: 70vh;
+    }
+    50% {
+        opacity: 0;
+        transform: translate(200%, 40%);
+    }
+    100% {
+        opacity: 0;
+        height: 30vh;
+    }
+}
+
+.walls {
+    position: absolute;
+    top: 25%;
+    height: 75%;
+    border-radius: 2.8vw;
+    border: 1vw solid black;
+    transition: 1s ease-out;
+}
+
+.leftwall {
+    right: 85%;
+}
+
+.rightwall {
+    left: 85%;
+}
+
+.allGuessInputDiv {
+    display: inline-block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    background-color: #002080;
+    opacity: 0.8;
+    border: 3px solid black;
+    border-radius: 1vw;
+    margin-top: 5px;
+    z-index: -1;
+}
+
+textarea {
+    color: black;
+}
+
+.contentWrapDiv {
+    color: white;
+    opacity: 1;
+    margin-left: 25%;
+}
+
+.responseDiv {
+    color: lime;
+    background-color: darkslategrey;
+    display: inline-block;
+    position: absolute;
+    left: 310px;
+    box-sizing: border-box;
+    width: 400px;
+    height: 100px;
+    border: 0.5vw solid beige;
+    border-radius: 1vw;
+    padding-left: 20px;
+    margin-top: 5px;
+    font-family: "Lucidia Console", Monaco, monospace;
+    opacity: 0.8;
+    z-index: -1;
+    overflow: scroll;
+}
+
+.headerDiv {
+    position: relative;
+}
+
+audio {
+    display: inline-block;
+    position: absolute;
+    margin-left: 80%;
+}
+
+.modal-guess-game {
+    display: none;
+}
+
+#instructions-div {
+    display: inline-block;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    transform: translate(0, 40%);
+    z-index: 2;
+    margin-left: 60%;
+}
+
+#instructions-div h1 {
+    color: white;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: .03em;
+    font-size: 5em;
+}
+
+#instructions-div span {
+    position: relative;
+    color: white;
+    font-size: 1.6em;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: .03em;
+}
+
+#initial-background-div {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.play-now-button,
+.play-music-button {
+    display: inline-block;
+    position: absolute;
+    transform: translate(60vw, 76vh);
+}
+
+.play-now-button {
+    transform: translate(60vw, 76vh);
+    z-index: 1;
+}
+
+.play-music-button {
+    transform: translate(89vw, 5vh);
+    z-index: -1;
+    display: inline-block;
+}
+
+/*@media only screen and (max-width: 1200px) {*/
+
+/*.allGuessInputDiv {*/
+
+/*display: inline-block;*/
+
+/*box-sizing: border-box;*/
+
+/*width: 300px;*/
+
+/*height: 150px;*/
+
+/*background-color: darkblue;*/
+
+/*opacity: 0.7;*/
+
+/*border: 3px solid black;*/
+
+/*border-radius: 2.8vw;*/
+
+/*margin: 1%;*/
+
+/*}*/
+
+/*.response-div {*/
+
+/*display: inline-block;*/
+
+/*box-sizing: border-box;*/
+
+/*width: 300px;*/
+
+/*height: 150px;*/
+
+/*border: 2vw solid white;*/
+
+/*border-radius: 2.8vw;*/
+
+/*}*/
+
+/*}*/
+
+/*}*/
+
+/*@media only screen and (min-width: 1400px) {*/
+
+/*.allGuessInputDiv {*/
+
+/*display: inline-block;*/
+
+/*box-sizing: border-box;*/
+
+/*width: 300px;*/
+
+/*height: 200px;*/
+
+/*background-color: darkblue;*/
+
+/*opacity: 0.7;*/
+
+/*border: 3px solid black;*/
+
+/*border-radius: 2.8vw;*/
+
+/*margin: 1%;*/
+
+/*}*/
+
+/*.response-div {*/
+
+/*display: inline-block;*/
+
+/*box-sizing: border-box;*/
+
+/*width: 300px;*/
+
+/*height: 200px;*/
+
+/*border: 2vw solid white;*/
+
+/*border-radius: 2.8vw;*/
+
+/*}*/
+
+/*}*/

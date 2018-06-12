@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alia's Guessing Game!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="guessing_game.js"></script>
+</head>
+
+<body>
+    <div id="instructions-div">
+        <h1>Number Guessing Game</h1>
+        <span>Guess the correct number between one through ten before Lana gets crushed by the stone walls!</span>
+    </div>
+    <div id="initial-background-div"></div>
+    <button type="button" class="play-now-button btn btn-primary btn-lg">Play Now</button>
+    <!--HTML for the game-->
+    <!-- <audio loop src="archer_closing_theme_the_killer.mp3">
+    </audio> -->
+    <button type="button" class="play-music-button btn btn-primary btn-lg">mute music</button>
+    <div class="container bodystyle">
+        <div class="headerDiv">
+            <div class="allGuessInputDiv">
+                <div class="contentWrapDiv">
+                    <span>Guess here:</span>
+                    <br />
+                </div>
+
+                <div class="contentWrapDiv">
+                    <textarea id="numberGuessInput" type="text" name="guess_input"></textarea>
+                </div>
+                <br />
+                <div class="contentWrapDiv">
+                    <button type="button" class="game-button btn btn-primary btn-lg">Guess!</button>
+                </div>
+            </div>
+            <div class="responseDiv"></div>
+            <span id="responseSpan"></span>
+            <br />
+        </div>
+    </div>
+    <img src="images/blue_stone_wall.jpg" class="leftwall walls">
+    <img src="images/blue_stone_wall.jpg" class="rightwall walls">
+</body>
+
+</html>
