@@ -8,11 +8,16 @@ function initApp() {
 class Game {
     constructor() {
         this.theNumber = this.pickedNumber();
+        console.log(this.theNumber);
         this.wallMovementCounter = 0;
         this.previousGuesses = [];
-        this.gamesPlayed = null; //will add functionality to this later
+        this.gamesPlayed = null;
         this.makeLana();
         this.createClickHandlers();
+        this.gamesPlayed = null;
+        this.gamesLost = null;
+        this.gamesWon = null;
+        this.stats = null;
     }
 
     createClickHandlers() {
@@ -27,13 +32,13 @@ class Game {
     }
 
     makeDefeatedLana() {
-        var DefeatedLanaPic = $("<img class='human evil-human'>").attr("src", "images/Lana_Kane_Evil.png");
+        var DefeatedLanaPic = $("<img class='human defeated-human'>").attr("src", "images/Lana_Kane_Evil.png");
         $(".container").append(DefeatedLanaPic);
     }
 
     eraseDefeatedLana() {
-        var DefeatedLanaPic = $("<img class='human evil-human'>").attr("src", "images/Lana_Kane_Evil.png");
-        $(".evil-human").detach();
+        var DefeatedLanaPic = $("<img class='human defeated-human'>").attr("src", "images/Lana_Kane_Evil.png");
+        $(".defeated-human").detach();
     }
 
     makeLana() {
@@ -49,9 +54,7 @@ class Game {
     makeGuess() {
         var theGuess = parseInt($("#numberGuessInput").val());
         var message = "";
-        if (isNaN(theGuess)) {
-            return;
-        } else if (theGuess === this.theNumber) {
+        if (theGuess === this.theNumber) {
             message = "\>Congratulations, you helped Lana escape!";
             this.youWon();
         } else if (theGuess < 1 || this.theGuess > 10) {
@@ -73,7 +76,7 @@ class Game {
 
     moveWalls() {
         this.wallMovementCounter += 1;
-        if (this.wallMovementCounter === 1) {
+        if (this.wallMovementCounter === 4) {
             this.youLost();
         }
         var translateAmount = this.wallMovementCounter * 15.5;
@@ -83,35 +86,52 @@ class Game {
 
     youLost() {
         this.makeDefeatedLana();
-        $("#lana-pic")[0].style.display = "none";
-        $(".responseDiv").empty();
+        this.removeLana();
         $("#responseSpan")[0].style.color = "red";
         this.changeGameButton();
+        this.gamesLost++;
+        this.updateStats();
     }
 
     youWon() {
-        $(".responseDiv").empty();
         $("#lana-pic").addClass("lana-win");
         this.changeGameButton();
+        this.gamesWon++;
+        this.updateStats();
     }
+
+    updateStats() {
+        this.gamesPlayed++;
+        this.stats = parseInt((this.gamesWon / this.gamesPlayed) * 100) + "%";
+        $(".played").text(this.gamesPlayed);
+        $(".lost").text(this.gamesLost);
+        $(".won").text(this.gamesWon);
+        $(".stats-num").text(this.stats);
+    }
+
+
 
     changeGameButton() {
         $(".game-button").text("Play Again!")
             .removeClass("btn btn-primary btn-lg")
             .addClass("btn btn-success btn-lg")
+            .unbind("click")
             .click(this.restartGame.bind(this));
     }
 
     restartGame() {
+        $(".lana-win").remove();
+        $(".responseDiv").empty();
         this.wallMovementCounter = 0;
         this.previousGuesses = [];
         this.theNumber = this.pickedNumber();
+        this.eraseDefeatedLana();
         this.makeLana();
         this.createClickHandlers();
-        this.eraseDefeatedLana();
         $(".game-button").text("Guess!")
             .removeClass("btn btn-success btn-lg")
             .addClass("btn btn-primary btn-lg")
+            .unbind("click")
             .click(this.makeGuess.bind(this));
     }
 
@@ -121,6 +141,7 @@ class Game {
         $("#initial-background-div")[0].style.display = "none";
         $(".play-now-button")[0].style.display = "none";
         $("#instructions-div")[0].style.display = "none";
+        $(".stats-cont")[0].style.display = "block";
         // $("audio")[0].play();
         $(".play-music-button")[0].style.zIndex = "2";
     }

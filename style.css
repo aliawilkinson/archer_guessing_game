@@ -1,5 +1,5 @@
 html {
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 
 body .bodystyle {
@@ -18,10 +18,11 @@ body .bodystyle {
     transform: translate(0, 40%);
 }
 
-.evil-human {
+.defeated-human {
     position: absolute;
     z-index: 2;
-    transform: translate(5%, -60%);
+    top: 20px;
+    right: 0.1px;
 }
 
 .lana-win {
@@ -195,88 +196,46 @@ audio {
     display: inline-block;
 }
 
-/*@media only screen and (max-width: 1200px) {*/
+.stats-cont {
+    display: none;
+    position: absolute;
+    right: 10vh;
+    z-index: 2;
+    width: 50vh;
+    top: 1vh;
+}
 
-/*.allGuessInputDiv {*/
+.stats {
+    border-radius: 100%;
+    background-color: blue;
+    height: 8vh;
+    width: 8vh;
+    margin: 1vh;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 8vh;
+    color: white;
+    font-size: 5vmin;
+}
 
-/*display: inline-block;*/
+.stats-header {
+    display: inline;
+}
 
-/*box-sizing: border-box;*/
+.info-cont {
+    display: inline-block;
+    height: 12vh;
+    width: 10vh;
+    text-align: center;
+}
 
-/*width: 300px;*/
+.info-cont>h4 {
+    color: blue;
+    font-size: 2.5vmin;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: .06em;
+}
 
-/*height: 150px;*/
-
-/*background-color: darkblue;*/
-
-/*opacity: 0.7;*/
-
-/*border: 3px solid black;*/
-
-/*border-radius: 2.8vw;*/
-
-/*margin: 1%;*/
-
-/*}*/
-
-/*.response-div {*/
-
-/*display: inline-block;*/
-
-/*box-sizing: border-box;*/
-
-/*width: 300px;*/
-
-/*height: 150px;*/
-
-/*border: 2vw solid white;*/
-
-/*border-radius: 2.8vw;*/
-
-/*}*/
-
-/*}*/
-
-/*}*/
-
-/*@media only screen and (min-width: 1400px) {*/
-
-/*.allGuessInputDiv {*/
-
-/*display: inline-block;*/
-
-/*box-sizing: border-box;*/
-
-/*width: 300px;*/
-
-/*height: 200px;*/
-
-/*background-color: darkblue;*/
-
-/*opacity: 0.7;*/
-
-/*border: 3px solid black;*/
-
-/*border-radius: 2.8vw;*/
-
-/*margin: 1%;*/
-
-/*}*/
-
-/*.response-div {*/
-
-/*display: inline-block;*/
-
-/*box-sizing: border-box;*/
-
-/*width: 300px;*/
-
-/*height: 200px;*/
-
-/*border: 2vw solid white;*/
-
-/*border-radius: 2.8vw;*/
-
-/*}*/
-
-/*}*/
+.stats-num {
+    font-size: 2vmin;
+}
